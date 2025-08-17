@@ -15,15 +15,22 @@ This is a React + TypeScript + Vite project using modern ESM modules. The codeba
 
 ### Technology Stack
 - **React 19** with TypeScript for the frontend
+- **React Router DOM** for client-side routing
 - **Vite** as the build tool and dev server
 - **ESLint** with TypeScript integration for code quality
 - **CSS** for styling (no framework detected)
+- **Tally.so** integration for waitlist form
 
 ### Project Structure
 - `src/` - Main application source code
-  - `App.tsx` - Root React component
+  - `App.tsx` - Root React component with routing setup
   - `main.tsx` - Application entry point
-  - `assets/` - Static assets (images, etc.)
+  - `components/` - React components
+    - `Home.tsx` - Landing page with logo and waitlist signup
+    - `Product.tsx` - Product features and value proposition
+    - `Team.tsx` - Team and founder information
+    - `Navigation.tsx` - Header navigation component
+  - `assets/` - Static assets (HomePro logo, images)
 - `public/` - Public static files served by Vite
 - `dist/` - Build output (ignored by ESLint)
 
@@ -38,12 +45,11 @@ This is a React + TypeScript + Vite project using modern ESM modules. The codeba
 
 ## Project Purpose
 
-This is a landing page for HomePro, a home care service that positions itself as "the primary care physician for your home." The site features:
+This is a landing page for HomePro, a home care service that positions itself as "the primary care physician for your home." The site is a single-page application with three main routes:
 
-- Hero section with waitlist signup
-- About section explaining the service
-- Team section highlighting the founder
-- Email collection for the waitlist with form validation
+- **Home (`/`)** - Hero section with HomePro logo and Tally.so waitlist signup
+- **Product (`/product`)** - Features including expert guidance, contractor negotiation, critical information access, and AI insights
+- **Team (`/team`)** - Founder information and company background
 
 ## Key Development Notes
 
@@ -52,5 +58,7 @@ This is a landing page for HomePro, a home care service that positions itself as
 - The project uses ESM modules exclusively (`"type": "module"` in package.json)
 - Hot Module Replacement (HMR) is enabled for fast development
 - Uses modern React 19 with functional components and hooks
-- Form handling with basic client-side validation
-- Smooth scrolling navigation between sections
+- External form handling via Tally.so integration (no client-side form validation needed)
+- Navigation uses React Router DOM with `Link` components
+- Components are organized by page/feature rather than by type
+- Monochrome design system (black & white) with Inter font family

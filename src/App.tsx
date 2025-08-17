@@ -4,6 +4,7 @@ import Navigation from './components/Navigation'
 import Home from './components/Home'
 import Product from './components/Product'
 import Team from './components/Team'
+import PitchDeck from './components/PitchDeck'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/product" element={<Product />} />
           <Route path="/team" element={<Team />} />
+          <Route path="/pitch/first" element={<PitchDeck />} />
         </Routes>
       </div>
     </Router>
