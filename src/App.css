@@ -65,7 +65,8 @@ body {
 
 /* Hero Section */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh; /* Use dynamic viewport height for mobile */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -182,7 +183,8 @@ body {
 
 /* Product Section */
 .product-section {
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh; /* Use dynamic viewport height for mobile */
   padding: 2rem;
   background: var(--background-light);
   display: flex;
@@ -252,7 +254,8 @@ body {
 
 /* Team Section */
 .team-section {
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh; /* Use dynamic viewport height for mobile */
   padding: 2rem;
   background: var(--background);
   display: flex;
@@ -331,31 +334,125 @@ body {
     font-size: 0.9rem;
   }
   
+  .hero {
+    padding: 4rem 1rem 2rem;
+  }
+  
   .hero-logo-img {
     height: 250px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
   }
   
   .waitlist-form {
     flex-direction: column;
   }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    padding: 1rem;
-  }
-  
-  .hero-logo-img {
-    height: 180px;
-  }
   
   .waitlist-card {
-    padding: 2rem;
+    padding: 2rem 1rem;
   }
   
   .product-section,
   .team-section {
-    padding: 6rem 1rem 3rem;
+    padding: 4rem 1rem 2rem;
+  }
+  
+  .product-container,
+  .team-container {
+    padding: 0 1rem;
+  }
+  
+  .story-block h3 {
+    font-size: 1.3rem;
+  }
+  
+  .story-block h4 {
+    font-size: 1.1rem;
+  }
+  
+  .story-block p {
+    font-size: 1rem;
+  }
+  
+  .team-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .team-member {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 1rem 2rem;
+  }
+  
+  .hero-logo-img {
+    height: 180px;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .waitlist-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .waitlist-text {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .email-input,
+  .submit-button {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .product-section,
+  .team-section {
+    padding: 3rem 1rem 2rem;
+  }
+  
+  .story-block h3 {
+    font-size: 1.2rem;
+  }
+  
+  .story-block h4 {
+    font-size: 1rem;
+  }
+  
+  .story-block p {
+    font-size: 0.95rem;
+  }
+  
+  .team-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .team-member {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .team-member h3 {
+    font-size: 1.3rem;
+  }
+  
+  .team-member p {
+    font-size: 0.95rem;
   }
 }
 
@@ -366,6 +463,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh; /* Use dynamic viewport height for mobile */
   background: var(--background);
   z-index: 2000;
   overflow: hidden;
@@ -532,28 +630,42 @@ body {
 
 /* Responsive Design for Pitch Deck */
 @media (max-width: 768px) {
+  .pitch-container {
+    padding: 1.5rem;
+  }
+  
   .pitch-slide h1 {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
   
   .pitch-slide h2 {
     font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
   
   .pitch-slide h3 {
     font-size: 1.6rem;
+    margin-bottom: 1rem;
   }
   
   .pitch-slide p {
     font-size: 1.1rem;
+    margin-bottom: 1rem;
   }
   
   .pitch-slide li {
     font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .pitch-slide ul {
+    margin-bottom: 1.5rem;
   }
   
   .pitch-logo {
     height: 120px;
+    margin-bottom: 1.5rem;
   }
   
   .pitch-controls {
@@ -576,26 +688,55 @@ body {
   
   .pitch-slide h1 {
     font-size: 2rem;
+    margin-bottom: 0.8rem;
   }
   
   .pitch-slide h2 {
     font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
   
   .pitch-slide h3 {
     font-size: 1.3rem;
+    margin-bottom: 0.8rem;
   }
   
   .pitch-slide p {
     font-size: 1rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
   }
   
   .pitch-slide li {
     font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+  }
+  
+  .pitch-slide ul {
+    margin-bottom: 1rem;
   }
   
   .pitch-logo {
     height: 100px;
+    margin-bottom: 1rem;
+  }
+  
+  .pitch-controls {
+    bottom: 0.5rem;
+    padding: 0.6rem 1rem;
+    gap: 1rem;
+  }
+  
+  .pitch-nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .pitch-counter {
+    font-size: 0.9rem;
+    min-width: 60px;
   }
 }
 
@@ -666,11 +807,38 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.situation-nav-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
 .situation-nav-hint {
   font-size: 0.9rem;
   color: var(--text-muted);
   font-style: italic;
+  text-align: center;
 }
+
+.mobile-hint {
+  display: none;
+}
+
+.desktop-hint {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .mobile-hint {
+    display: inline;
+  }
+  
+  .desktop-hint {
+    display: none;
+  }
+}
+
 
 /* Slide animations */
 @keyframes slideInFromBottom {

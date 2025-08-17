@@ -30,6 +30,7 @@ This is a React + TypeScript + Vite project using modern ESM modules. The codeba
     - `Product.tsx` - Product features and value proposition
     - `Team.tsx` - Team and founder information
     - `Navigation.tsx` - Header navigation component
+    - `PitchDeck.tsx` - Interactive animated pitch deck with keyboard navigation
   - `assets/` - Static assets (HomePro logo, images)
 - `public/` - Public static files served by Vite
 - `dist/` - Build output (ignored by ESLint)
@@ -45,11 +46,12 @@ This is a React + TypeScript + Vite project using modern ESM modules. The codeba
 
 ## Project Purpose
 
-This is a landing page for HomePro, a home care service that positions itself as "the primary care physician for your home." The site is a single-page application with three main routes:
+This is a landing page for HomePro, a home care service that positions itself as "the primary care physician for your home." The site is a single-page application with four main routes:
 
 - **Home (`/`)** - Hero section with HomePro logo and Tally.so waitlist signup
 - **Product (`/product`)** - Features including expert guidance, contractor negotiation, critical information access, and AI insights
 - **Team (`/team`)** - Founder information and company background
+- **Pitch Deck (`/pitch/first`)** - Interactive animated pitch deck presentation with keyboard navigation and real-life situations
 
 ## Key Development Notes
 
@@ -62,3 +64,11 @@ This is a landing page for HomePro, a home care service that positions itself as
 - Navigation uses React Router DOM with `Link` components
 - Components are organized by page/feature rather than by type
 - Monochrome design system (black & white) with Inter font family
+
+### Interactive Pitch Deck Features
+- **PitchDeck.tsx** implements a complex interactive presentation system
+- Keyboard navigation: Arrow keys for slides, up/down arrows for situations on specific slides
+- Uses React hooks (`useState`, `useEffect`, `useCallback`, `useMemo`) for state management
+- Animated transitions between situations with CSS classes
+- Progress tracking with visual progress bar
+- Two-level navigation system: main slides and nested situations within specific slides
