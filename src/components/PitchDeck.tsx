@@ -28,6 +28,14 @@ function PitchDeck() {
     }
   ], [])
 
+  const nextSituation = useCallback(() => {
+    setCurrentSituation((prev) => (prev + 1) % situations.length)
+  }, [situations.length])
+
+  const prevSituation = useCallback(() => {
+    setCurrentSituation((prev) => (prev - 1 + situations.length) % situations.length)
+  }, [situations.length])
+
   const slides = useMemo(() => [
     // Title Slide
     {
@@ -90,8 +98,25 @@ function PitchDeck() {
               <div className="situation-counter">
                 {currentSituation + 1} / {situations.length}
               </div>
+              <div className="situation-nav-controls">
+                <button 
+                  className="pitch-nav-btn pitch-up" 
+                  onClick={prevSituation}
+                  aria-label="Previous situation"
+                >
+                  ↑
+                </button>
+                <button 
+                  className="pitch-nav-btn pitch-down" 
+                  onClick={nextSituation}
+                  aria-label="Next situation"
+                >
+                  ↓
+                </button>
+              </div>
               <div className="situation-nav-hint">
-                Use ↑↓ arrows to navigate situations
+                <span className="desktop-hint">Use ↑↓ arrows or buttons to navigate situations</span>
+                <span className="mobile-hint">Tap buttons to navigate situations</span>
               </div>
             </div>
           </div>
@@ -200,7 +225,7 @@ function PitchDeck() {
         </div>
       )
     }
-  ], [currentSituation, situations])
+  ], [currentSituation, situations, nextSituation, prevSituation])
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % slides.length)
@@ -211,14 +236,6 @@ function PitchDeck() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
     setCurrentSituation(0) // Reset situation when changing slides
   }, [slides.length])
-
-  const nextSituation = useCallback(() => {
-    setCurrentSituation((prev) => (prev + 1) % situations.length)
-  }, [situations.length])
-
-  const prevSituation = useCallback(() => {
-    setCurrentSituation((prev) => (prev - 1 + situations.length) % situations.length)
-  }, [situations.length])
 
   const isSituationsSlide = useCallback(() => {
     return slides[currentSlide].title === "Real-Life Situations"
